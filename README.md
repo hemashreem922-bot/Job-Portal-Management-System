@@ -1,159 +1,170 @@
 # Job Portal Management System
 
-A full-stack, enterprise-grade **Job Portal Management System** built with **Java (Spring Boot 4)** and a **Relational SQL Database** (with dual support for MySQL and zero-configuration embedded H2 SQL database), complete with a responsive, modern web interface.
+A full-stack web application built using Java and Spring Boot to simplify job searching, recruitment, and application management.
 
----
+## Overview
 
-## 🌟 Key Features
+The Job Portal Management System provides three dedicated portals for candidates, employers, and administrators. It enables candidates to explore job opportunities and track applications, while employers can publish vacancies and manage applicants. Administrators can monitor users and platform activity.
 
-### 1. Job Seeker (Candidate) Portal
-- **Browse & Search Jobs**: Live keyword search across titles, descriptions, and skills.
-- **Smart Filtering**: Filter by category (*Software Engineering*, *DevOps & Cloud*, *Data & AI*, *Product & Design*), job type (*Full-time*, *Part-time*, *Remote*, *Contract*, *Internship*), and location.
-- **Job Details Modal**: Full job descriptions, qualifications, requirements, compensation, and perks.
-- **Easy Apply**: Instant 1-click apply modal with cover letter notes and resume link.
-- **Application Tracking**: Real-time status tracking (*APPLIED*, *IN_REVIEW*, *SHORTLISTED*, *INTERVIEW*, *ACCEPTED*, *REJECTED*) with recruiter feedback notes.
-- **Bookmark & Save**: Bookmark jobs for later viewing.
+## Key Features
 
-### 2. Employer (Recruiter) Portal
-- **Company Profile**: Manage company information, logo, website, and industry focus.
-- **Post & Manage Jobs**: Rich form for posting openings with compensation ranges, qualifications, and deadlines.
-- **Applicant Review Pipeline**: Inspect incoming applications, candidate headline, skills, resume, and cover letters.
-- **Status Progression & Notes**: Move candidates through hiring stages with custom recruiter feedback notes.
+### Candidate Portal
+- Browse and search available job opportunities.
+- Filter jobs by category, location, and employment type.
+- View detailed job descriptions and requirements.
+- Apply for jobs and track application status.
+- Bookmark jobs for future reference.
 
-### 3. Administrator Portal
-- **System Overview**: Metrics for Total Users, Active Jobs, Total Applications, and Pipeline Activity.
-- **User Moderation**: Manage candidate and recruiter accounts (activate / deactivate).
-- **Database Console Access**: Direct web access to the SQL database console at `/h2-console`.
+### Employer Portal
+- Manage company profiles.
+- Create, update, and manage job listings.
+- View applications received from candidates.
+- Review candidate profiles and resumes.
+- Update application statuses and provide feedback.
 
----
+### Admin Portal
+- View platform statistics and activity.
+- Manage candidate and employer accounts.
+- Activate or deactivate user accounts.
+- Access the H2 database console.
 
-## 🏗️ Technology Stack
+## Technology Stack
 
-- **Backend**: Java 21 / 26, Spring Boot 4.x
-  - Spring Web MVC (REST API)
-  - Spring Data JPA / Hibernate
-  - Jakarta Bean Validation
-- **Database**:
-  - **Default**: Relational H2 Database with file persistence (`./data/jobportaldb`)
-  - **Production/Alternative**: MySQL Database (`application-mysql.properties`)
-- **Frontend**:
-  - HTML5, CSS3, JavaScript (ES6 SPA)
-  - Bootstrap 5.3 & FontAwesome 6
-  - Served directly by Spring Boot (no Node/NPM required)
+| Component | Technologies |
+|---|---|
+| Backend | Java, Spring Boot |
+| Database | H2, MySQL |
+| ORM | Spring Data JPA, Hibernate |
+| Frontend | HTML, CSS, JavaScript |
+| UI Framework | Bootstrap 5 |
+| Icons | Font Awesome |
+| Build Tool | Maven |
 
----
+## Application Architecture
 
-## 🚀 Quick Start (Running the Application)
+The application follows a layered architecture:
+
+- **Controller:** Handles HTTP requests and API endpoints.
+- **Service:** Contains application business logic.
+- **Repository:** Manages database operations.
+- **Model:** Represents database entities.
+- **DTO:** Handles request and response data.
+- **Frontend:** Provides the user interface.
+
+## Getting Started
 
 ### Prerequisites
-- Java JDK installed (Java 21 or newer).
 
-### Method 1: Using the 1-Click Batch Script (Windows)
-Double-click `run.bat` or run:
-```cmd
-run.bat
+- Java JDK 21 or the version specified in the project configuration.
+- Windows, Linux, or macOS.
+- Maven Wrapper (included in the repository).
+
+### Installation
+
+**1. Clone the repository**
+
+```bash
+git clone https://github.com/hemashreem922-bot/Job-Portal-Management-System.git
 ```
 
-### Method 2: Using PowerShell
+**2. Navigate to the project directory**
+
+```bash
+cd Job-Portal-Management-System
+```
+
+**3. Run the application on Windows**
+
+Using PowerShell:
+
 ```powershell
 .\run.ps1
 ```
 
-### Method 3: Using the Maven Wrapper Directly
-```bash
+Alternatively, using Maven Wrapper:
+
+```powershell
 .\mvnw.cmd spring-boot:run
 ```
 
-Once started, open your web browser and navigate to:
-👉 **[http://localhost:8080](http://localhost:8080)**
+**4. Open the application**
 
----
+Visit:
 
-## 👥 Default Demo Accounts
+http://localhost:8080
 
-The system automatically initializes with realistic sample users, job postings, and applications:
+The application uses the H2 database by default.
 
-| Role | Email | Password | Full Name / Organization |
-| :--- | :--- | :--- | :--- |
-| **Candidate** | `alice@candidate.com` | `candidate123` | Alice Johnson (Senior Java Developer) |
-| **Candidate** | `bob@candidate.com` | `candidate123` | Bob Williams (DevOps & Platform Eng.) |
-| **Employer** | `recruiter@techcorp.com` | `recruiter123` | Sarah Jenkins (TechCorp Global) |
-| **Employer** | `hr@innovatelabs.io` | `recruiter123` | David Miller (Innovate Labs) |
-| **Admin** | `admin@jobportal.com` | `admin123` | System Administrator |
+## Database Configuration
 
-> 💡 **Tip**: In the top navigation bar, click the **Role** pills (*Candidate*, *Employer*, *Admin*) for instant 1-click demo login!
+The project supports two database options:
 
----
+**H2 Database**
+- Default database configuration.
+- File-based persistence.
+- Suitable for local development and testing.
 
-## 🗄️ Relational SQL Database
+**MySQL Database**
+- Alternative relational database configuration.
+- Uses the MySQL application profile.
+- Database settings can be configured in the project properties.
 
-### Default: H2 SQL Database (File-Persistent)
-- The database is persisted to the local directory: `./data/jobportaldb.mv.db`.
-- **H2 Web Console**: Access the interactive database console at [http://localhost:8080/h2-console](http://localhost:8080/h2-console).
-  - **JDBC URL**: `jdbc:h2:file:./data/jobportaldb`
-  - **Username**: `sa`
-  - **Password**: `password`
+## REST API
 
-### Switching to MySQL
-To use MySQL instead of H2:
-1. Make sure your MySQL server is running on `localhost:3306`.
-2. Update database credentials in `src/main/resources/application-mysql.properties` if needed.
-3. Start the application with the MySQL profile:
-   ```cmd
-   .\mvnw.cmd spring-boot:run -Dspring-boot.run.profiles=mysql
-   ```
-4. The schema (`src/main/resources/schema.sql`) and tables will automatically be created in `job_portal_db`.
+The application provides REST API endpoints for:
 
----
+- User registration and login.
+- Job creation, searching, updating, and deletion.
+- Saving and retrieving bookmarked jobs.
+- Submitting and tracking applications.
+- Managing application statuses.
+- Administrator statistics and user management.
 
-## 📡 REST API Reference
+## Project Structure
 
-| Method | Endpoint | Description |
-| :--- | :--- | :--- |
-| `POST` | `/api/auth/register` | Register a new user (`JOB_SEEKER` or `EMPLOYER`) |
-| `POST` | `/api/auth/login` | Authenticate and get user details |
-| `GET` | `/api/jobs` | Search & filter jobs (`keyword`, `category`, `jobType`, `location`) |
-| `GET` | `/api/jobs/{id}` | Get specific job details |
-| `POST` | `/api/jobs?employerId={id}` | Post a new job listing |
-| `PUT` | `/api/jobs/{id}?employerId={id}` | Update existing job |
-| `DELETE` | `/api/jobs/{id}?userId={id}` | Remove a job listing |
-| `POST` | `/api/jobs/{id}/save?userId={id}` | Toggle bookmarking a job |
-| `GET` | `/api/jobs/saved?userId={id}` | Get user's saved jobs |
-| `POST` | `/api/applications?candidateId={id}` | Submit an application for a job |
-| `GET` | `/api/applications/my-applications?candidateId={id}` | Get candidate's applied jobs and statuses |
-| `GET` | `/api/applications/employer/{employerId}` | Get applications received by employer |
-| `PUT` | `/api/applications/{id}/status?userId={id}` | Update application status (`SHORTLISTED`, `INTERVIEW`, etc.) |
-| `GET` | `/api/admin/stats` | Get system overview metrics |
-| `GET` | `/api/admin/users` | List all users |
-| `PUT` | `/api/admin/users/{id}/toggle-status` | Enable or disable a user account |
-
----
-
-## 📁 Project Directory Structure
-
-```
-job-portal/
-├── .mvn/wrapper/                  # Maven Wrapper binaries & properties
-├── data/                          # Persistent H2 SQL database storage
+```text
+Job-Portal-Management-System/
+│
 ├── src/
-│   ├── main/
-│   │   ├── java/com/jobportal/
-│   │   │   ├── controller/        # REST API controllers
-│   │   │   ├── dto/               # Request & response data transfer objects
-│   │   │   ├── model/             # JPA entity models (User, Job, Application, etc.)
-│   │   │   ├── repository/        # Spring Data JPA repositories
-│   │   │   ├── service/           # Business logic & seed data initializer
-│   │   │   ├── util/              # Password hashing & utility functions
-│   │   │   └── JobPortalApplication.java
-│   │   └── resources/
-│   │       ├── static/            # Responsive Web UI (HTML5, CSS3, JS SPA)
-│   │       ├── application.properties        # Default H2 SQL configuration
-│   │       ├── application-mysql.properties  # MySQL configuration profile
-│   │       ├── schema.sql         # Standard SQL DDL script
-│   │       └── data.sql           # SQL seed script
-├── mvnw.cmd                       # Maven Wrapper for Windows
-├── pom.xml                        # Maven dependencies & build definitions
-├── run.bat                        # 1-Click Windows execution script
-├── run.ps1                        # PowerShell execution script
-└── README.md                      # Documentation
+│   └── main/
+│       ├── java/com/jobportal/
+│       │   ├── controller/
+│       │   ├── dto/
+│       │   ├── model/
+│       │   ├── repository/
+│       │   ├── service/
+│       │   └── util/
+│       │
+│       └── resources/
+│           ├── static/
+│           ├── application.properties
+│           ├── application-mysql.properties
+│           ├── schema.sql
+│           └── data.sql
+│
+├── data/
+├── .mvn/
+├── pom.xml
+├── mvnw
+├── mvnw.cmd
+├── run.bat
+├── run.ps1
+└── README.md
 ```
+
+## Future Enhancements
+
+- Email notifications for application updates.
+- Advanced job recommendation system.
+- Resume parsing and skill matching.
+- Enhanced analytics and reporting.
+
+## Author
+
+**Hema Shree Muppala**
+
+GitHub: [@hemashreem922-bot](https://github.com/hemashreem922-bot)
+
+---
+
+*Developed as a software development project to explore Java, Spring Boot, database management, and full-stack application development.*
