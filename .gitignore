@@ -1,5 +1,6 @@
-.env
-*.class
+.vscode/
+node_modules/
 target/
-build/
-desktop.ini
+*.class
+.env
+.DS_Store
