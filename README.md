@@ -1,126 +1,102 @@
-# Job Portal Management System
+# 💼 Job Portal Management System
 
-A full-stack web application built using Java and Spring Boot to simplify job searching, recruitment, and application management.
+### A Full-Stack Web Application for Smarter Recruitment
 
-## Overview
+A centralized recruitment platform connecting candidates, employers, and administrators through a unified job management system.
 
-The Job Portal Management System provides three dedicated portals for candidates, employers, and administrators. It enables candidates to explore job opportunities and track applications, while employers can publish vacancies and manage applicants. Administrators can monitor users and platform activity.
+---
 
-## Key Features
+## 📌 About the Project
 
-### Candidate Portal
-- Browse and search available job opportunities.
-- Filter jobs by category, location, and employment type.
-- View detailed job descriptions and requirements.
-- Apply for jobs and track application status.
-- Bookmark jobs for future reference.
+The **Job Portal Management System** is a full-stack web application developed using Java and Spring Boot to simplify and organize the recruitment process.
 
-### Employer Portal
-- Manage company profiles.
-- Create, update, and manage job listings.
-- View applications received from candidates.
+It provides three role-based portals, allowing candidates to discover job opportunities, employers to manage recruitment activities, and administrators to oversee platform operations.
+
+The system focuses on simplifying job applications, improving recruitment management, and providing an organized experience for all users.
+
+
+## ✨ Core Features
+
+### 01. Candidate Portal
+- Search and explore available job opportunities.
+- Filter vacancies by category, location, and employment type.
+- View job descriptions and eligibility requirements.
+- Submit job applications.
+- Track application progress and status.
+- Bookmark interesting opportunities.
+
+### 02. Employer Portal
+- Create and manage company profiles.
+- Publish and maintain job vacancies.
+- Access applications submitted by candidates.
 - Review candidate profiles and resumes.
-- Update application statuses and provide feedback.
+- Manage application statuses.
+- Provide feedback to applicants.
 
-### Admin Portal
-- View platform statistics and activity.
+### 03. Admin Portal
+- Monitor platform statistics and activities.
 - Manage candidate and employer accounts.
 - Activate or deactivate user accounts.
 - Access the H2 database console.
 
-## Technology Stack
+## 🧰 Technology Stack
 
-| Component | Technologies |
+| Category | Technologies |
 |---|---|
-| Backend | Java, Spring Boot |
-| Database | H2, MySQL |
-| ORM | Spring Data JPA, Hibernate |
+| Language | Java |
+| Backend | Spring Boot |
 | Frontend | HTML, CSS, JavaScript |
 | UI Framework | Bootstrap 5 |
+| Database | H2, MySQL |
+| ORM | Hibernate |
+| Database Access | Spring Data JPA |
 | Icons | Font Awesome |
 | Build Tool | Maven |
 
-## Application Architecture
+## 🏛️ System Architecture
 
-The application follows a layered architecture:
+The application follows a layered architecture that separates responsibilities into different components.
 
-- **Controller:** Handles HTTP requests and API endpoints.
-- **Service:** Contains application business logic.
-- **Repository:** Manages database operations.
-- **Model:** Represents database entities.
-- **DTO:** Handles request and response data.
-- **Frontend:** Provides the user interface.
+| Layer | Responsibility |
+|---|---|
+| Controller | Handles HTTP requests and API endpoints |
+| Service | Implements business logic |
+| Repository | Performs database operations |
+| Model | Defines database entities |
+| DTO | Transfers request and response data |
+| Frontend | Handles user interaction |
 
-## Getting Started
+**Application Flow:**
 
-### Prerequisites
+`User Interface → Controller → Service → Repository → Database`
 
-- Java JDK 21 or the version specified in the project configuration.
-- Windows, Linux, or macOS.
-- Maven Wrapper (included in the repository).
+## 🗄️ Database Management
 
-### Installation
-
-**1. Clone the repository**
-
-```bash
-git clone https://github.com/hemashreem922-bot/Job-Portal-Management-System.git
-```
-
-**2. Navigate to the project directory**
-
-```bash
-cd Job-Portal-Management-System
-```
-
-**3. Run the application on Windows**
-
-Using PowerShell:
-
-```powershell
-.\run.ps1
-```
-
-Alternatively, using Maven Wrapper:
-
-```powershell
-.\mvnw.cmd spring-boot:run
-```
-
-**4. Open the application**
-
-Visit:
-
-http://localhost:8080
-
-The application uses the H2 database by default.
-
-## Database Configuration
-
-The project supports two database options:
+The application supports two database configurations:
 
 **H2 Database**
-- Default database configuration.
+- Default database.
 - File-based persistence.
-- Suitable for local development and testing.
+- Useful for development and testing.
 
 **MySQL Database**
-- Alternative relational database configuration.
-- Uses the MySQL application profile.
-- Database settings can be configured in the project properties.
+- Alternative relational database.
+- Configured through the MySQL application profile.
+- Connection details managed through project properties.
 
-## REST API
+## 🔗 REST API Capabilities
 
-The application provides REST API endpoints for:
+The backend provides endpoints for:
 
-- User registration and login.
-- Job creation, searching, updating, and deletion.
-- Saving and retrieving bookmarked jobs.
-- Submitting and tracking applications.
-- Managing application statuses.
-- Administrator statistics and user management.
+- User registration and authentication.
+- Job creation and management.
+- Job searching and filtering.
+- Bookmark management.
+- Job application submission.
+- Application status tracking.
+- Administrative user management and statistics.
 
-## Project Structure
+## 📁 Project Structure
 
 ```text
 Job-Portal-Management-System/
@@ -142,6 +118,9 @@ Job-Portal-Management-System/
 │           ├── schema.sql
 │           └── data.sql
 │
+├── docs/
+│   └── images/
+│
 ├── data/
 ├── .mvn/
 ├── pom.xml
@@ -152,19 +131,62 @@ Job-Portal-Management-System/
 └── README.md
 ```
 
-## Future Enhancements
+## 🚀 Getting Started
 
-- Email notifications for application updates.
-- Advanced job recommendation system.
+### Prerequisites
+
+- Java JDK 21 or the version specified in the project.
+- Maven Wrapper.
+- Windows, Linux, or macOS.
+
+### Installation and Execution
+
+**Step 1: Clone the repository**
+
+```bash
+git clone https://github.com/hemashreem922-bot/Job-Portal-Management-System.git
+```
+
+**Step 2: Navigate to the project**
+
+```bash
+cd Job-Portal-Management-System
+```
+
+**Step 3: Run the application**
+
+For Windows PowerShell:
+
+```powershell
+.\run.ps1
+```
+
+Alternatively:
+
+```powershell
+.\mvnw.cmd spring-boot:run
+```
+
+**Step 4: Access the application**
+
+Open your browser and visit:
+
+`http://localhost:8080`
+
+The application uses H2 by default.
+
+## 🔮 Future Enhancements
+
+- Automated email notifications.
+- Intelligent job recommendation system.
 - Resume parsing and skill matching.
-- Enhanced analytics and reporting.
+- Advanced recruitment analytics.
+- Improved reporting and dashboard insights.
 
-## Author
-
-**Hema Shree Muppala**
+B.Tech | Software Development | AI & Machine Learning
 
 GitHub: [@hemashreem922-bot](https://github.com/hemashreem922-bot)
 
 ---
 
-*Developed as a software development project to explore Java, Spring Boot, database management, and full-stack application development.*
+*Project developed to explore full-stack application development, Java programming, Spring Boot, REST APIs, and relational database management.*
